@@ -130,20 +130,12 @@ v mkdir -p $XDG_BIN_HOME $XDG_CACHE_HOME $XDG_CONFIG_HOME $XDG_DATA_HOME
 case $SKIP_MISCCONF in
   true) sleep 0;;
   *)
-    for i in $(find .config/ -mindepth 1 -maxdepth 1 ! -name 'ags' ! -name 'hypr' -exec basename {} \;); do
+    for i in $(find .config/ -mindepth 1 -maxdepth 1 -exec basename {} \;); do
       echo "[$0]: Found target: .config/$i"
-      v ln -s "$XDG_CONFIG_HOME/$i/" ".config/$i/"
-      fi
+      v ln -s "$base/.config/$i" "$XDG_CONFIG_HOME/$i"
     done
     ;;
 esac
-
-# For AGS
-v ln -s "$XDG_CONFIG_HOME"/ags/ .config/ags/
-
-# For Hyprland
-v ln -s "$XDG_CONFIG_HOME"/hypr/ .config/hypr/
-
 
 # some foldes (eg. .local/bin) should be processed separately to avoid `--delete' for rsync,
 # since the files here come from different places, not only about one program.
