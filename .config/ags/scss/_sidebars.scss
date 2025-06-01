@@ -49,6 +49,22 @@ $sidebar_chat_textboxareaColor: mix($onSurfaceVariant, $surfaceVariant, 40%);
     background-color: $layer1;
 }
 
+.display-setting {
+    @include full-rounding;
+    @include group-padding;
+    @include element_decel;
+    background-color: $layer1;
+    padding-left: 0.818rem;
+}
+
+.display-setting:hover {
+    background-color: $layer1Hover;
+}
+
+.display-settings-active {
+    background-color: $layer1Active;
+}
+
 .sidebar-iconbutton {
     @include full-rounding;
     @include element_decel;
