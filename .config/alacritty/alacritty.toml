@@ -1,0 +1,29 @@
+[terminal]
+shell = "zsh"
+
+[window]
+padding = { x = 25, y = 25 }
+
+[font]
+normal = { family = "SpaceMono Nerd Font", style = "Regular" }
+size = 11
+
+[keyboard]
+bindings = [
+  { key = "PageUp", action = "ScrollPageUp" },
+  { key = "PageDown", action = "ScrollPageDown" },
+  { key = "F", mods = "Control", action = "SearchForward" },
+  { key = "+", mods = "Control", action = "IncreaseFontSize" },
+  { key = "-", mods = "Control", action = "DecreaseFontSize" },
+  { key = "Key0", mods = "Control", action = "ResetFontSize" },
+  { key = "Numpad0", mods = "Control", action = "ResetFontSize" }
+]
+
+[scrolling]
+history = 100000
+
+[cursor]
+style = "Beam"
+unfocused_hollow = true
+thickness = 0.15
+
