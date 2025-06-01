@@ -95,3 +95,10 @@ function install-python-packages() {
   x uv pip install -r scriptdata/requirements.txt
   x deactivate # We don't need the virtual environment anymore
 }
+
+function install-oh-my-zsh() {
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  cp ~/.zshrc ~/.zshrc.omz # backup original omz script
+  rm ~/.zshrc
+  ln -s $base/zsh/.zshrc ~/.zshrc
+}

@@ -126,7 +126,7 @@ printf "\e[36m[$0]: 2. Copying + Configuring\e[0m\n"
 # In case some folders does not exists
 v mkdir -p $XDG_BIN_HOME $XDG_CACHE_HOME $XDG_CONFIG_HOME $XDG_DATA_HOME
 
-# MISC (For .config/* but not AGS, not Hyprland)
+# MISC (For .config/*)
 case $SKIP_MISCCONF in
   true) sleep 0;;
   *)
@@ -136,6 +136,8 @@ case $SKIP_MISCCONF in
     done
     ;;
 esac
+
+v install-oh-my-zsh
 
 # some foldes (eg. .local/bin) should be processed separately to avoid `--delete' for rsync,
 # since the files here come from different places, not only about one program.

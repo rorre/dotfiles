@@ -100,65 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-#echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-#echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-#echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-. "$HOME/.cargo/env"
-
-# pnpm
-export PNPM_HOME="/home/ren/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
-export PATH="$HOME/.local/bin:$PATH"
-
-alias pact="source env/bin/activate"
-
-#export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
-#export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
-
-export ANDROID_SDK_ROOT='/opt/android-sdk'
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
-export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/
-export PATH=$PATH:$ANDROID_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
-
-export BROWSER=zen-browser
-export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-export HISTSIZE=999999999
-export HISTFILE="$HOME/.zsh_history"
-export SAVEHIST=$HISTSIZE
-
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-
-
-export JAVA_HOME='/usr/lib/jvm/default-runtime'
-
-alias wcc='warp-cli connect'
-alias wcs='warp-cli status'
-alias wcd='warp-cli disconnect'
-
-# opam configuration
-[[ ! -r /home/ren/.opam/opam-init/init.zsh ]] || source /home/ren/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-export PATH=$PATH:~/go/bin:/home/ren/Android/Sdk/platform-tools
-export PATH=/opt/depot_tools:$PATH
-export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
-
-alias gp="git push"
-
-[ -f "/home/ren/.ghcup/env" ] && . "/home/ren/.ghcup/env" # ghcup-env
-
-export PATH="$PATH:/home/ren/.dotnet/tools"
-source ~/.config/zshrc.d/dots-hyprland.zsh
+for file in ~/.config/zshrc.d/*.zsh; do
+  source "$file"
+done
