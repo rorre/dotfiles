@@ -1,0 +1,1 @@
+/home/ren/dotfiles/.config/zshrc.d
